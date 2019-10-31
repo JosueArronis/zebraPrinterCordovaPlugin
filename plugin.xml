@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='utf-8'?>
+<plugin id="cordova.plugin.zebra.printer.wifi" version="0.0.1" xmlns="http://apache.org/cordova/ns/plugins/1.0" 
+        xmlns:android="http://schemas.android.com/apk/res/android">
+<name>zprinterwifi</name>
+<js-module name="zprinterwifi" src="www/zprinterwifi.js">
+    <clobbers target="cordova.plugins.zprinterwifi" />
+</js-module>
+<platform name="android">
+    <config-file target="AndroidManifest.xml" parent="/*">
+        <uses-permission android:name="android.permission.CHANGE_WIFI_MULTICAST_STATE" />
+        <uses-permission android:name="android.permission.INTERNET" />
+        <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    </config-file>
+    <config-file parent="/*" target="res/xml/config.xml">
+        <feature name="zprinterwifi">
+            <param name="android-package" value="cordova.plugin.zebra.printer.wifi.zprinterwifi" />
+        </feature>
+    </config-file>
+    <config-file parent="/*" target="AndroidManifest.xml"></config-file>
+    <source-file src="src/android/zprinterwifi.java" target-dir="src/cordova.plugin.zebra.printer.wifi/zprinterwifi" />
+    <source-file src="src/android/ZWSDK_ANDROID_API.jar" target-dir="libs"/>
+</platform>
+</plugin>
